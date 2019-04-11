@@ -1,3 +1,3 @@
 <div class=“message”>
-	<p><b><%= message.user.email %> said:</b> <%= message.content %></p>
+  <p><span id='user_name'><b><%= message.user == current_user ? 'You' : current_user.email %> said:</b></span> <%= message.content %></p>
 </div>

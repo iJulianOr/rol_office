@@ -4,7 +4,8 @@
   <%= render @messages %>
 </div>
 
-<form>
+<form class='new_message'>
+  <input id='identified_user' type='hidden' value="<%= current_user.id %>" name='user_id'>
   <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
+  <input name='content' type="text" data-behavior="room_speaker">
 </form>
