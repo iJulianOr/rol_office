@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_174515) do
+ActiveRecord::Schema.define(version: 2019_04_12_183805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2019_04_12_174515) do
     t.integer "level"
     t.integer "experience"
     t.integer "user_id"
+    t.integer "available_points"
+    t.integer "ethnicity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ethnicities", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +47,21 @@ ActiveRecord::Schema.define(version: 2019_04_12_174515) do
     t.integer "user_id"
     t.index ["sender_type", "sender_id"], name: "index_messages_on_sender_type_and_sender_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "skill_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "ethnicity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "skill_type_id"
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stats", force: :cascade do |t|
