@@ -5,7 +5,7 @@
 </div>
 
 <form class='new_message'>
-  <input id='identified_user' type='hidden' value="<%= current_user.id %>" name='user_id'>
+  <input id='identified_user' type='hidden' value="<%= current_user.id %>" name='sender_id'>
   <label>Say something:</label><br>
   <input name='content' type="text" data-behavior="room_speaker">
 </form>

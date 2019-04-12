@@ -2,7 +2,6 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
   connected: function() {},
   disconnected: function() {},
   received: function(data) {
-      debugger
     return $('#messages').append(data['message']);
   },
   speak: function(message) {

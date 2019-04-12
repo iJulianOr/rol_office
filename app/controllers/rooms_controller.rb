@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, :set_current_user
 
   def show
-    @messages = Message.all
+    @messages = Message.last(10)
   end
 
   private
